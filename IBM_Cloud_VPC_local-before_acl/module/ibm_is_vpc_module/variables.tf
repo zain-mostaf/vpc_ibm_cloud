@@ -13,3 +13,18 @@ variable "existing_vpc" {
   type        = bool
   default     = false
 }
+
+#variable default_security_group_name {
+#    type = string
+#    description = "the default security group name for a new vpc"
+#}
+
+#variable default_network_acl_name {
+#    type = string
+#    description = "the default network acl name for a new vpc"
+#}
+
+#variable default_routing_table_name {
+#    type = string
+#    description = "the default routing table name for a new vpc"
+#}

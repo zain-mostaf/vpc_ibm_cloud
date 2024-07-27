@@ -13,6 +13,20 @@ locals {
   ]
 }
 
+locals {
+  sg_rules = [
+    for r in var.security_group_rules : {
+      name       = r.name
+      direction  = r.direction
+      remote     = lookup(r, "remote", null)
+      ip_version = lookup(r, "ip_version", null)
+      icmp       = lookup(r, "icmp", null)
+      tcp        = lookup(r, "tcp", null)
+      udp        = lookup(r, "udp", null)
+    }
+  ]
+}
+
 module "resource_group" {
   source                 = "./module/ibm_resource_group_module"
   resource_group_name    = var.resource_group_name
@@ -24,6 +38,9 @@ module "vpc" {
   vpc_name            = var.vpc_name
   existing_vpc        = var.existing_vpc
   resource_group_id   = module.resource_group.resource_group_id
+  #default_security_group_name = var.vpc.default_security_group_name
+  #default_network_acl_name = var.vpc.default_network_acl_name
+  #default_routing_table_name = var.vpc.default_routing_table_name
 }
 
 module "address_prefix" {
@@ -63,9 +80,11 @@ data "ibm_is_subnet" "subnet" {
 }
 
 module "security_group" {
-  source              = "./module/ibm_security_group_module"
-  vpc_id              = module.vpc.vpc_id
-  security_group_name = var.security_group_name
-  roles               = var.roles
+  source                = "./module/ibm_security_group_module"
+  create_security_group = var.create_security_group
+  name                  = var.sg_name
+  vpc_id                = var.create_security_group ? data.ibm_is_vpc.vpc[0].id : null
+  resource_group_id     = module.resource_group.resource_group_id
+  security_group        = var.security_group
+  security_group_rules  = local.sg_rules
 }
-
