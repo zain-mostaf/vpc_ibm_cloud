@@ -83,7 +83,7 @@ module "security_group" {
   source                = "./module/ibm_security_group_module"
   create_security_group = var.create_security_group
   name                  = var.sg_name
-  vpc_id                = var.create_security_group ? data.ibm_is_vpc.vpc[0].id : null
+  vpc_id                = var.create_security_group ? module.vpc[0].vpc_id : null
   resource_group_id     = module.resource_group.resource_group_id
   security_group        = var.security_group
   security_group_rules  = local.sg_rules
