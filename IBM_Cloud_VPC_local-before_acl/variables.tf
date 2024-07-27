@@ -99,6 +99,6 @@ variable "security_group_name" {
 
 
 variable "security_group_rules" {
-  type = list(any)
+  type = map(list(string))
   default = []  
 }
