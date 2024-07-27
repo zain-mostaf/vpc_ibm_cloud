@@ -1,14 +1,12 @@
 variable "vpc_id" {
   description = "VPC ID of the new security group"
   type        = string
-  default     = null
 }
 
 
 variable "resource_group_id" {
   description = "Resource group ID"
   type        = string
-  default     = null
 }
 
 variable "create_security_group" {
