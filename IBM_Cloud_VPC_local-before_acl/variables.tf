@@ -91,3 +91,8 @@ variable "acl_rules" {
   type = list(any)
   default = []
 }
+
+variable "security_group_rules" {
+  type = list(any)
+  default = []  
+}
