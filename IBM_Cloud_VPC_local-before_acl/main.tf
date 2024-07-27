@@ -43,6 +43,7 @@ module "subnet" {
   ipv4_cidr_block    = var.ipv4_cidr_block
   zone               = var.zone
   address_prefix_id  = module.address_prefix.id
+  depends_on = [ module.address_prefix ]
 }
 
 module "net_acl" {
