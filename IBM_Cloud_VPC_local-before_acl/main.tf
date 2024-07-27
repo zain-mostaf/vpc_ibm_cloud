@@ -22,7 +22,7 @@ module "address_prefix" {
 
 module "subnet" {
   source             = "./module/ibm_is_subnet_module"
-  count = var.subnet_exists == true ? 1 : 0
+  count = var.subnet_exists == true ? 0 : 1
   subnet_name        = var.subnet_name
   vpc_id             = module.vpc.vpc_id
   ipv4_cidr_block    = var.ipv4_cidr_block
@@ -33,7 +33,7 @@ module "subnet" {
 module "net_acl" {
   source             = "./module/ibm_acl_module"
   name               = var.acl_name
-  count = var.subnet_exists == true ? 1 : 0
+  count = var.subnet_exists == true ? 0 : 1
   vpc_id             = module.vpc.vpc_id
   subnet_id          = module.subnet[0].subnet_id
   rules              = var.acl_rules
