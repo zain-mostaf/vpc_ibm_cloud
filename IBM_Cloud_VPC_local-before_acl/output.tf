@@ -13,6 +13,11 @@ output "address_prefix_id" {
   value       = module.address_prefix.id
 }
 
+
+output "security_group_id" {
+  value = module.security_group.security_group_id
+}
+
 #output "subnet_id" {
 #  value = module.subnet.subnet_id
 #}

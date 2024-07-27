@@ -92,17 +92,7 @@ variable "acl_rules" {
   default = []
 }
 
-variable "create_security_group" {
-  description = "True to create new security group. False if security group is already existing and security group rules are to be added"
-  type        = bool
-}
-
 variable "security_group_name" {
-  description = "Name of the Network ACL"
+  description = "Name of the security group"
   type        = string
-}
-
-
-variable "security_group_rules" {
-  type = map(list(string)) 
 }

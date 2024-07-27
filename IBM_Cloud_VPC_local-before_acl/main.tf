@@ -13,20 +13,6 @@ locals {
   ]
 }
 
-locals {
-  rules_sg = [
-    for r in var.security_group_rules : {
-      name       = r.name
-      direction  = r.direction
-      remote     = lookup(r, "remote", null)
-      ip_version = lookup(r, "ip_version", null)
-      icmp       = lookup(r, "icmp", null)
-      tcp        = lookup(r, "tcp", null)
-      udp        = lookup(r, "udp", null)
-    }
-  ]
-}
-
 module "resource_group" {
   source                 = "./module/ibm_resource_group_module"
   resource_group_name    = var.resource_group_name
@@ -77,11 +63,8 @@ data "ibm_is_subnet" "subnet" {
 }
 
 module "security_group" {
-  source                = "./module/ibm_security_group_module"
-  create_security_group = var.create_security_group
-  name                  = var.security_group_name
-  vpc_id                = module.vpc.vpc_id
-  resource_group_id     = module.resource_group.resource_group_id
-  security_group        = var.security_group_name
-  security_group_rules  = local.rules_sg
+  source              = "./module/ibm_security_group_module"
+  vpc_id              = module.vpc.vpc_id
+  security_group_name = var.security_group_name
 }
+
