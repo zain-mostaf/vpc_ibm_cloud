@@ -14,7 +14,7 @@ locals {
 }
 
 locals {
-  rules = [
+  rules_sg = [
     for r in var.security_group_rules : {
       name       = r.name
       direction  = r.direction
@@ -83,5 +83,5 @@ module "security_group" {
   vpc_id                = module.vpc.vpc_id
   resource_group_id     = module.resource_group.resource_group_id
   security_group        = var.security_group_name
-  security_group_rules  = local.rules
+  security_group_rules  = local.rules_sg
 }
