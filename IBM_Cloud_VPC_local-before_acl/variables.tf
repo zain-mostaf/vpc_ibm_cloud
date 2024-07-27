@@ -64,6 +64,7 @@ variable "subnet_name" {
   type        = string
 }
 
+
 variable "ipv4_cidr_block" {
   description = "The IPv4 CIDR block for the subnet (required if creating a new subnet)"
   type        = string
@@ -94,5 +95,10 @@ variable "acl_rules" {
 
 variable "security_group_name" {
   description = "Name of the security group"
+  type        = string
+}
+
+variable "role" {
+  description = "Role for the security group"
   type        = string
 }
