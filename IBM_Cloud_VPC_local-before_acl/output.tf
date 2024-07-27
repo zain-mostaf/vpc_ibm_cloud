@@ -13,6 +13,6 @@ output "address_prefix_id" {
   value       = module.address_prefix.id
 }
 
-output "subnet_id" {
-  value = module.subnet.subnet_id
-}
+#output "subnet_id" {
+#  value = module.subnet.subnet_id
+#}

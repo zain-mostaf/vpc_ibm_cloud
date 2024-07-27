@@ -43,5 +43,5 @@ module "net_acl" {
 data "ibm_is_subnet" "subnet" {
   count = var.subnet_exists == true ? 1 : 0
   name  = var.subnet_name
-  vpc   = var.vpc_id
+  vpc   = module.vpc_id
 }
