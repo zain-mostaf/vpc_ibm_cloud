@@ -35,7 +35,7 @@ module "net_acl" {
   name               = var.acl_name
   count = var.subnet_exists == true ? 1 : 0
   vpc_id             = module.vpc.vpc_id
-  subnet_id          = module.subnet.subnet_id
+  subnet_id          = module.subnet[0].subnet_id
   rules              = var.acl_rules
   resource_group_id =  module.resource_group.resource_group_id
 }

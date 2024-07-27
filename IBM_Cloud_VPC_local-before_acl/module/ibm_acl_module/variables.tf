@@ -9,7 +9,7 @@ variable "vpc_id" {
 }
 
 variable "subnet_id" {
-  description = "VPC ID"
+  description = "subnet ID"
   type        = string
 }
 
