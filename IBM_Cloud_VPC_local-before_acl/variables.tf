@@ -98,7 +98,7 @@ variable "security_group_name" {
   type        = string
 }
 
-variable "role" {
-  description = "Role for the security group"
-  type        = string
+variable "roles" {
+  description = "Roles for the security group"
+  type        = map(list(string))
 }
