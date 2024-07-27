@@ -63,8 +63,9 @@ data "ibm_is_subnet" "subnet" {
 }
 
 module "security_group" {
-  source              = "./module/ibm_security_group_module"
-  vpc_id              = module.vpc.vpc_id
+  source              = "./security_group"
+  ibmcloud_api_key    = var.ibmcloud_api_key
+  vpc_id              = var.vpc_id
   security_group_name = var.security_group_name
   roles               = var.roles
 }
