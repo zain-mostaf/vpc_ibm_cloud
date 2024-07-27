@@ -1,3 +1,18 @@
+locals {
+  rules = [
+    for r in var.acl_rules : {
+      name        = r.name
+      action      = r.action
+      source      = r.source
+      destination = r.destination
+      direction   = r.direction
+      icmp        = lookup(r, "icmp", null)
+      tcp         = lookup(r, "tcp", null)
+      udp         = lookup(r, "udp", null)
+    }
+  ]
+}
+
 module "resource_group" {
   source                 = "./module/ibm_resource_group_module"
   resource_group_name    = var.resource_group_name
@@ -36,7 +51,7 @@ module "net_acl" {
   count = var.subnet_exists == true ? 0 : 1
   vpc_id             = module.vpc.vpc_id
   subnet_id          = module.subnet[0].subnet_id
-  rules              = var.acl_rules
+  rules              = local.rules
   resource_group_id =  module.resource_group.resource_group_id
 }
 
