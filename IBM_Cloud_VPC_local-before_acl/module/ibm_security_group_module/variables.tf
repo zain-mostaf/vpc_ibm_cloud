@@ -16,7 +16,7 @@ variable "create_security_group" {
 }
 
 
-variable "sg_name" {
+variable "name" {
   description = "Name of the new Security Group"
   type        = string
 }

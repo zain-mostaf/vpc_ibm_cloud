@@ -1,11 +1,11 @@
 data "ibm_is_security_group" "sg_ds" {
   count          = var.create_security_group ? 1 : 0
-  name           = var.sg_name
+  name           = var.name
 }
 
 resource "ibm_is_security_group" "sg" {
   count          = var.create_security_group ? 0 : 1
-  name           = var.sg_name
+  name           = var.name
   vpc            = var.vpc_id
   resource_group = var.resource_group_id
 }

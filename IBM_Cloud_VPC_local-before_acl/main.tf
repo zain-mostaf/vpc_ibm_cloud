@@ -81,7 +81,7 @@ data "ibm_is_subnet" "subnet" {
 
 module "security_group" {
   source                = "./module/ibm_security_group_module"
-  sg_name               = var.sg_name
+  name               = var.sg_name
   create_security_group = var.create_security_group == true ? 1 : 0
   vpc_id                = module.vpc.vpc_id
   resource_group_id     = module.resource_group.resource_group_id
