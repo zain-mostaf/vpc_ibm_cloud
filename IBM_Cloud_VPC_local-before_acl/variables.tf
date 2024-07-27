@@ -99,11 +99,11 @@ variable "create_security_group" {
 }
 
 
-variable "sg_name" {
-  description = "Name of the new Security Group"
-  type        = string
-  default     = null
-}
+#variable "sg_name" {
+#  description = "Name of the new Security Group"
+#  type        = string
+#  default     = false
+#}
 
 #variable "security_group" {
 #  description = "Existing Security Group's name to which rules are to be attached."
