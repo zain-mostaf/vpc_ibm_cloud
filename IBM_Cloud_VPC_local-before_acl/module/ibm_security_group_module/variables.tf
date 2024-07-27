@@ -14,13 +14,13 @@ variable "resource_group_id" {
 variable "create_security_group" {
   description = "True to create new security group. False if security group is already existing and security group rules are to be added"
   type        = bool
+  default     = false
 }
 
 
 variable "sg_name" {
   description = "Name of the new Security Group"
   type        = string
-  default     = false
 }
 
 #variable "security_group" {

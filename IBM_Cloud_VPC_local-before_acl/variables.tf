@@ -96,14 +96,14 @@ variable "acl_rules" {
 variable "create_security_group" {
   description = "false to create new security group. True if security group is already existing and security group rules are to be added"
   type        = bool
+  default     = false
 }
 
 
-#variable "sg_name" {
-#  description = "Name of the new Security Group"
-#  type        = string
-#  default     = false
-#}
+variable "sg_name" {
+  description = "Name of the new Security Group"
+  type        = string
+}
 
 #variable "security_group" {
 #  description = "Existing Security Group's name to which rules are to be attached."
