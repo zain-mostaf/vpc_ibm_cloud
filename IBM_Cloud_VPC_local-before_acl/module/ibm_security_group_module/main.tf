@@ -1,19 +1,14 @@
 data "ibm_is_security_group" "sg_ds" {
-  count = var.create_security_group ? 0 : 1
-  name  = var.security_group
+  count          = var.create_security_group ? 1 : 0
+  name           = var.sg_name
 }
 
 resource "ibm_is_security_group" "sg" {
-  count          = var.create_security_group ? 1 : 0
-  name           = var.name
+  count          = var.create_security_group ? 0 : 1
+  name           = var.sg_name
   vpc            = var.vpc_id
   resource_group = var.resource_group_id
 }
-
-
-#---------------------------------------------------------
-# Create security group rules resources
-#---------------------------------------------------------
 
 resource "ibm_is_security_group_rule" "sg_rules" {
   for_each   = { for r in var.security_group_rules : r.name => r }
