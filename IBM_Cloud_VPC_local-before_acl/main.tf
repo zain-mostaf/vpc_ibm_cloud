@@ -77,12 +77,11 @@ data "ibm_is_subnet" "subnet" {
 }
 
 module "security_group" {
-  source = "./module/ibm_secuity_group_module"
-
+  source                = "./module/ibm_secuity_group_module"
   create_security_group = var.create_security_group
-  name                  = var.name
-  vpc_id                = var.create_security_group ? data.ibm_is_vpc.vpc[0].id : null
-  resource_group_id     = data.ibm_resource_group.resource_group.id
-  security_group        = var.security_group
+  name                  = var.security_group_name
+  vpc_id                = module.vpc.vpc_id
+  resource_group_id     = module.resource_group.resource_group_id
+  security_group        = var.security_group_name
   security_group_rules  = local.rules
 }

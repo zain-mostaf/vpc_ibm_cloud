@@ -92,6 +92,12 @@ variable "acl_rules" {
   default = []
 }
 
+variable "security_group_name" {
+  description = "Name of the Network ACL"
+  type        = string
+}
+
+
 variable "security_group_rules" {
   type = list(any)
   default = []  
