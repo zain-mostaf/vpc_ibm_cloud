@@ -93,7 +93,7 @@ variable "acl_name" {
 #  default = []
 #}
 
-variable "rules" {
+variable "acl_rules" {
  description = "List of rules that are to be attached to the Network ACL"
   type = list(object({
     name        = string
