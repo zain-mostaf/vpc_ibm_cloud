@@ -70,7 +70,7 @@ module "net_acl" {
   vpc_id             = module.vpc.vpc_id
   subnet_id          = module.subnet[0].subnet_id
   rules              = local.rules
-   resource_group_id = module.ibmc_resource_group.id
+   resource_group_id = module.resource_group.resource_group_id
 }
 
 data "ibm_is_subnet" "subnet" {
