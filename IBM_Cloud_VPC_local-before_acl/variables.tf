@@ -113,23 +113,6 @@ variable "sg_name" {
 
 variable "security_group_rules" {
   description = "Security Group rules"
-  type = list(object({
-    name       = string
-    direction  = string
-    remote     = string
-    ip_version = string
-    icmp = object({
-      code = number
-      type = number
-    })
-    tcp = object({
-      port_max = number
-      port_min = number
-    })
-    udp = object({
-      port_max = number
-      port_min = number
-    })
-  }))
+  type = list(any)
   default = []
 }
