@@ -42,3 +42,8 @@ variable "security_group_id" {
   description = "ID of the security group to attach to the instance"
   type        = string
 }
+
+variable "resource_group_id" {
+  description = "The ID of the resource group to associate with the VPC"
+  type        = string
+}
