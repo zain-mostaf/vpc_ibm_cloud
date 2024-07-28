@@ -43,7 +43,7 @@ variable "security_group_id" {
   type        = string
 }
 
-variable "resource_group_id" {
-  description = "The ID of the resource group to associate with the VPC"
-  type        = string
+variable resource_group_id {
+    type = string
+    description = "the id of the resource group for a new subnet"
 }
