@@ -38,8 +38,7 @@ variable "ssh_key_id" {
   type        = string
 }
 
-#variable "create_security_group" {
-#  description = "True to create new security group. False if security group is already existing and security group rules are to be added"
-#  type        = bool
-#  default     = false
-#}
+variable "security_group_id" {
+  description = "ID of the security group to attach to the instance"
+  type        = string
+}
