@@ -7,7 +7,7 @@ resource "ibm_is_instance" "linux_instance" {
   zone             = var.zone
   primary_network_interface {
     subnet         = var.subnet_id
-    security_group_id  = var.security_group_id
+    security_groups  = var.security_group_id
   }
   keys = [var.ssh_key_id]
 }
