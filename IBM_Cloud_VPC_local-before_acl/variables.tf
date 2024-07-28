@@ -101,7 +101,7 @@ variable "create_security_group" {
 
 
 variable "sg_name" {
-  description = "Name of the new Security Group"
+  description = "Name of the Security Group"
   type        = string
 }
 
