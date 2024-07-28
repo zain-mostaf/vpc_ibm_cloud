@@ -104,5 +104,5 @@ module "linux_instances" {
   subnet_id           = module.subnet[0].subnet_id
   security_group_id   = module.security_group.security_group_id
   ssh_key_id          = module.ssh_key.ssh_key_id
-  resource_group_id   = module.resource_group.id
+  resource_group_id   = module.resource_group.resource_group_id
 }
