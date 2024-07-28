@@ -3,7 +3,7 @@ output "security_group_id" {
   value       = var.create_security_group ?  data.ibm_is_security_group.sg_ds.0.id : ibm_is_security_group.sg[0].id 
 }
 
-#output "security_group_rules" {
-#  description = "All the IDs of Security group Rules"
-#  value       = [for rule in ibm_is_security_group_rule.sg_rules : rule.id]
-#}
+output "security_group_rules" {
+  description = "All the IDs of Security group Rules"
+  value       = [for rule in ibm_is_security_group_rule.sg_rules : rule.id]
+}
