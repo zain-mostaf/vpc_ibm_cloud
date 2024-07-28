@@ -37,3 +37,9 @@ variable "ssh_key_id" {
   description = "SSH key ID"
   type        = string
 }
+
+variable "create_security_group" {
+  description = "True to create new security group. False if security group is already existing and security group rules are to be added"
+  type        = bool
+  default     = false
+}
