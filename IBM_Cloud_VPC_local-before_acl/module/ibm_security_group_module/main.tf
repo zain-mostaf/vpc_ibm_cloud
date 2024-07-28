@@ -12,7 +12,7 @@ resource "ibm_is_security_group" "sg" {
 
 resource "ibm_is_security_group_rule" "sg_rules" {
   for_each   = { for r in var.security_group_rules : r.name => r }
-  group      = var.create_security_group ? ibm_is_security_group.sg[0].id : data.ibm_is_security_group.sg_ds.0.id
+  group      = var.create_security_group ?  data.ibm_is_security_group.sg_ds.0.id : ibm_is_security_group.sg[0].id 
   direction  = each.value.direction
   remote     = each.value.remote != "" ? each.value.remote : null
   ip_version = each.value.ip_version != "" ? each.value.ip_version : "ipv4"
