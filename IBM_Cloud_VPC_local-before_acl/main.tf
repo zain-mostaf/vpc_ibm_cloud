@@ -87,3 +87,21 @@ module "security_group" {
   resource_group_id     = module.resource_group.resource_group_id
   security_group_rules  = local.sg_rules
 }
+
+module "ssh_key" {
+  source     = "./module/ibm_ssh_key_module"
+  name       = var.ssh_key_name
+  public_key = var.ssh_public_key
+}
+
+module "linux_instances" {
+  source              = "./modules/ibm_linux_vsi_module"
+  instance_count      = var.linux_instance_count
+  image_id            = var.linux_image_id
+  profile             = var.linux_profile
+  vpc_id              = var.vpc_id
+  zone                = var.zone
+  subnet_id           = var.subnet_id
+  security_group_ids  = var.security_group_id
+  ssh_key_id          = module.ssh_key.ssh_key_id
+}

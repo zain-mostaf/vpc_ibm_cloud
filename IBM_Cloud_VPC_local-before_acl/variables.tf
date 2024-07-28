@@ -116,3 +116,28 @@ variable "security_group_rules" {
   type = list(any)
   default = []
 }
+
+variable "ssh_key_name" {
+  description = "Name of the SSH key"
+  type        = string
+}
+
+variable "ssh_public_key" {
+  description = "Public key content"
+  type        = string
+}
+
+variable "linux_instance_count" {
+  description = "Number of Linux instances"
+  type        = number
+}
+
+variable "linux_image_id" {
+  description = "Image ID for Linux instances"
+  type        = string
+}
+
+variable "linux_profile" {
+  description = "Profile for Linux instances"
+  type        = string
+}
