@@ -52,3 +52,14 @@ variable "vsi_name_prefix" {
   description = "Prefix for VSI names"
   type        = string
 }
+
+variable "windows_username" {
+  description = "Username for Windows VSI"
+  type        = string
+}
+
+variable "windows_password" {
+  description = "Password for Windows VSI"
+  type        = string
+  sensitive   = true
+}

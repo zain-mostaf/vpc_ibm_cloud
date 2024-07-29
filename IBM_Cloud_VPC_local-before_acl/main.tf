@@ -111,8 +111,8 @@ module "linux_instances" {
 module "windows_instances" {
   source              = "./module/ibm_linux_vsi_module"
   instance_count      = var.windows_instance_count
-  image_id            = var.linux_image_id
-  profile             = var.linux_profile
+  image_id            = var.windows_image_id
+  profile             = var.windows_profile
   vpc_id              = module.vpc.vpc_id
   zone                = var.zone
   subnet_id           = module.subnet[0].subnet_id
@@ -120,4 +120,6 @@ module "windows_instances" {
   ssh_key_id          = module.ssh_key.ssh_key_id
   resource_group_id   = module.resource_group.resource_group_id
   vsi_name_prefix     = var.prefix_name 
+  windows_username    = var.windows_username
+  windows_password    = var.windows_password
 }
