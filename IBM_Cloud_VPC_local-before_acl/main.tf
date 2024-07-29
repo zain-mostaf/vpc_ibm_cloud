@@ -109,7 +109,7 @@ module "linux_instances" {
 }
 
 module "windows_instances" {
-  source              = "./module/ibm_linux_vsi_module"
+  source              = "./module/ibm_win_vsi_module"
   instance_count      = var.windows_instance_count
   image_id            = var.windows_image_id
   profile             = var.windows_profile
