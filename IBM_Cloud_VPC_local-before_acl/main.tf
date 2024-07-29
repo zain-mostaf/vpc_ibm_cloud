@@ -105,4 +105,19 @@ module "linux_instances" {
   security_group_id   = module.security_group.security_group_id
   ssh_key_id          = module.ssh_key.ssh_key_id
   resource_group_id   = module.resource_group.resource_group_id
+  vsi_name_prefix     = var.prefix_name 
+}
+
+module "windows_instances" {
+  source              = "./module/ibm_linux_vsi_module"
+  instance_count      = var.windows_instance_count
+  image_id            = var.linux_image_id
+  profile             = var.linux_profile
+  vpc_id              = module.vpc.vpc_id
+  zone                = var.zone
+  subnet_id           = module.subnet[0].subnet_id
+  security_group_id   = module.security_group.security_group_id
+  ssh_key_id          = module.ssh_key.ssh_key_id
+  resource_group_id   = module.resource_group.resource_group_id
+  vsi_name_prefix     = var.prefix_name 
 }

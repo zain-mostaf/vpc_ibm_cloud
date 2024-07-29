@@ -1,6 +1,6 @@
-resource "ibm_is_instance" "linux_instance" {
+resource "ibm_is_instance" "windows_instance" {
   count            = var.instance_count
-  name             = format("%s-ldap-%02d", var.vsi_name_prefix, count.index + 1)
+  name             = format("%s-ad-%02d", var.vsi_name_prefix, count.index + 1)
   image            = var.image_id
   profile          = var.profile
   vpc              = var.vpc_id

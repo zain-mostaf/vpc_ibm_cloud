@@ -9,6 +9,12 @@ variable "region" {
   type        = string
 }
 
+variable "prefix_name" {
+  description = "IBM Cloud region"
+  type        = string
+}
+
+
 
 variable "resource_group_name" {
   description = "The name of the resource group"
@@ -53,12 +59,6 @@ variable "address_prefix_cidr" {
   type        = string
 }
 
-#variable "exists_subnet" {
-#  description = "Set to true if the subnet already exists, false to create a new one"
-#  type        = bool
-#  default     = false
-#}
-
 variable "subnet_name" {
   description = "The name of the subnet"
   type        = string
@@ -87,11 +87,6 @@ variable "acl_name" {
   type        = string
 }
 
-#variable "acl_rules" {
-# description = "List of rules that are to be attached to the Network ACL"
-#  type = list(any)
-#  default = []
-#}
 
 variable "acl_rules" {
   description = "List of rules that are to be attached to the Network ACL"
@@ -134,11 +129,6 @@ variable "sg_name" {
   type        = string
 }
 
-#variable "security_group" {
-#  description = "Existing Security Group's name to which rules are to be attached."
-#  type        = string
-#  default     = null
-#}
 
 variable "security_group_rules" {
   type = list(object({
@@ -185,6 +175,21 @@ variable "linux_image_id" {
 }
 
 variable "linux_profile" {
+  description = "Profile for Linux instances"
+  type        = string
+}
+
+variable "windows_instance_count" {
+  description = "Number of Linux instances"
+  type        = number
+}
+
+variable "windows_image_id" {
+  description = "Image ID for Linux instances"
+  type        = string
+}
+
+variable "windows_profile" {
   description = "Profile for Linux instances"
   type        = string
 }

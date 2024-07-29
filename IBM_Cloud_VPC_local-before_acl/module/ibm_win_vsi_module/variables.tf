@@ -1,10 +1,10 @@
 variable "instance_count" {
-  description = "Number of Linux instances"
+  description = "Number of Windows instances"
   type        = number
 }
 
 variable "image_id" {
-  description = "Image ID for Linux instances"
+  description = "Image ID for Windows instances"
   type        = string
 }
 
