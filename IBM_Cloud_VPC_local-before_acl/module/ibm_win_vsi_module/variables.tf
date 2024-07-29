@@ -53,13 +53,13 @@ variable "vsi_name_prefix" {
   type        = string
 }
 
-#ariable "windows_username" {
-#  description = "Username for Windows VSI"
-#  type        = string
-#}
+variable "windows_username" {
+  description = "Username for Windows VSI"
+  type        = string
+}
 
-#variable "windows_password" {
-#  description = "Password for Windows VSI"
-#  type        = string
-#  sensitive   = true
-#}
+variable "windows_password" {
+  description = "Password for Windows VSI"
+  type        = string
+  sensitive   = true
+}

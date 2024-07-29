@@ -12,8 +12,8 @@ resource "ibm_is_instance" "windows_instance" {
   }
   user_data = base64encode(join("\n", [
     "<powershell>",
-    "net user /add adminuser P@ssw0rd1234@#$&*",
-    "net localgroup administrators adminuser /add",
+    "net user /add ${var.windows_username} ${var.windows_password}",
+    "net localgroup administrators ${var.windows_username} /add",
     "</powershell>"
   ]))
   keys = [var.ssh_key_id]

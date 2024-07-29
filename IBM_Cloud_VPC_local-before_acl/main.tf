@@ -120,6 +120,6 @@ module "windows_instances" {
   ssh_key_id          = module.ssh_key.ssh_key_id
   resource_group_id   = module.resource_group.resource_group_id
   vsi_name_prefix     = var.prefix_name 
-  #windows_username    = var.windows_username 
-  #windows_password    = var.windows_password
+  windows_username    = var.windows_username 
+  windows_password    = var.windows_password
 }
